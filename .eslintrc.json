@@ -1,3 +1,5 @@
+// 타입스크립트에서 코드의 일관성과 가독성을 유지하고 오류 방지를 위해 사용
+// ESLint가 프로젝트 코드를 분석하고 적절한 규칙을 적용해 개발자에게 피드백
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

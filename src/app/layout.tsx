@@ -1,3 +1,4 @@
+// 폰트 및 레이아웃을 정의
 import './globals.css'
 import { Inter } from 'next/font/google'
 

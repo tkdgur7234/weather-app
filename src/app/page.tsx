@@ -1,3 +1,4 @@
+// 날씨 정보를 검색하고 최근에 검색한 위치 목록을 볼 수 있는 기능
 "use client";
 import { ILocation, IWeather } from "@/interface/interface";
 import axios from "axios";
@@ -65,8 +66,13 @@ export default function Home() {
       if (response.data) {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
-
         setSearchedText("");
+
+        // Update recentSearch array with the searchedText
+      if (!recentSearch.includes(searchedText)) {
+        // Add searchedText to the beginning of the array
+        setRecentSearch([searchedText, ...recentSearch.slice(0, 5)]);
+      }
       }
     } catch (error) {
       console.log(error);
@@ -176,8 +182,8 @@ export default function Home() {
             <div className="absolute lg:bottom-10 bottom-[-60px] left-0 right-0 text-center">
               <small className="text-gray-100">
                 Developed by{" "}
-                <a href="https://mahfuzur01.netlify.app/" target="_blank" className="text-sm font-light text-amber-700 bg-white p-1 rounded-md">
-                  Mahfuzur Rahman
+                <a href="https://github.com/tkdgur7234" target="_blank" className="text-sm font-light text-amber-700 bg-white p-1 rounded-md">
+                  박 상 혁
                 </a>
               </small>
             </div>

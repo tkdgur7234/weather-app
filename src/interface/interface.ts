@@ -1,3 +1,5 @@
+// 날씨, 위치 데이터를 다루는데 사용. 
+// 해당 데이터를 가져와서 유형 안정성 보장을 위해 사용
 export interface ILocation {
     
         name: string,
