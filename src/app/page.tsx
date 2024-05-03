@@ -12,14 +12,14 @@ const styling1 = {
   backgroundSize: "cover",
 };
 
-const [recentSearch, setRecentSearch] = useState([
+const recentSearch = [
   "Bangladesh",
   "Italy",
   "France",
   "Turkey",
   "India",
   "Dubai",
-]);
+];
 
 export default function Home() {
   // ================= these are the state ===============
