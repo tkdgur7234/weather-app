@@ -12,14 +12,14 @@ const styling1 = {
   backgroundSize: "cover",
 };
 
-const recentSearch = [
+const [recentSearch, setRecentSearch] = useState([
   "Bangladesh",
   "Italy",
   "France",
   "Turkey",
   "India",
   "Dubai",
-];
+]);
 
 export default function Home() {
   // ================= these are the state ===============
@@ -67,7 +67,6 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
-        
       }
     } catch (error) {
       console.log(error);
