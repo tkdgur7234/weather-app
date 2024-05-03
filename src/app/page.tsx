@@ -67,12 +67,7 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
-
-        // Update recentSearch array with the searchedText
-      if (!recentSearch.includes(searchedText)) {
-        // Add searchedText to the beginning of the array
-        setRecentSearch([searchedText, ...recentSearch.slice(0, 5)]);
-      }
+        
       }
     } catch (error) {
       console.log(error);
