@@ -12,14 +12,14 @@ const styling1 = {
   backgroundSize: "cover",
 };
 
-const recentSearch = [
+const [recentSearch, setRecentSearch] = useState([
   "Bangladesh",
   "Italy",
   "France",
   "Turkey",
   "India",
   "Dubai",
-];
+]);
 
 export default function Home() {
   // ================= these are the state ===============
@@ -69,10 +69,10 @@ export default function Home() {
         setSearchedText("");
 
         // Update recentSearch array with the searchedText
-      if (!recentSearch.includes(searchedText)) {
-        // Add searchedText to the beginning of the array
-        setRecentSearch([searchedText, ...recentSearch.slice(0, 5)]);
-      }
+        if (!recentSearch.includes(searchedText)) {
+          // recentSearch를 직접 업데이트합니다.
+          setRecentSearch([searchedText, ...recentSearch.slice(0, 5)]);
+        }
       }
     } catch (error) {
       console.log(error);
