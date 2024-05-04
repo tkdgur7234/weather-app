@@ -12,16 +12,18 @@ const styling1 = {
   backgroundSize: "cover",
 };
 
-const [recentSearch, setRecentSearch] = useState([
-  "Bangladesh",
-  "Italy",
-  "France",
-  "Turkey",
-  "India",
-  "Dubai",
-]);
+
 
 export default function Home() {
+  const [recentSearch, setRecentSearch] = useState([
+    "Bangladesh",
+    "Italy",
+    "France",
+    "Turkey",
+    "India",
+    "Dubai",
+  ]);
+  
   // ================= these are the state ===============
   const [searchedText, setSearchedText] = useState<string>("");
   const [weatherDetails, setWeatherDetails] = useState<IWeather>(
