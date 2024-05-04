@@ -117,33 +117,6 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
-
-        // 각 나라에 따른 배경 이미지 설정
-        switch(name.toLowerCase()) {
-          case "canada":
-            setStyling1({ ...styling1, backgroundImage: `url('/canada.jpg')` });
-            break;
-          case "germany":
-            setStyling1({ ...styling1, backgroundImage: `url('/germany.jpg')` });
-            break;
-          case "japan":
-            setStyling1({ ...styling1, backgroundImage: `url('/japan.jpg')` });
-            break;
-          case "singapore":
-            setStyling1({ ...styling1, backgroundImage: `url('/singapore.jpg')` });
-            break;
-          case "korea":
-            setStyling1({ ...styling1, backgroundImage: `url('/korea.jpg')` });
-            break;
-          case "bangladesh":
-            setStyling1({ ...styling1, backgroundImage: `url('/bangladesh.jpg')` });
-            break;
-          // 나머지 나라에 대한 설정 추가
-          default:
-            // 기본 배경 이미지 설정
-            setStyling1({ ...styling1, backgroundImage: `url('/weather.jpg')` });
-            break;
-        }
       }
     } catch (error) {
       console.log(error);
