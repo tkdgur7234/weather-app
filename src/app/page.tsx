@@ -12,14 +12,14 @@ const styling1 = {
   backgroundSize: "cover",
 };
 
-const recentSearch = [
+const [recentSearch, setRecentSearch] = useState([
   "Bangladesh",
   "Italy",
   "France",
   "Turkey",
   "India",
   "Dubai",
-];
+]);
 
 export default function Home() {
   // ================= these are the state ===============
@@ -67,6 +67,11 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
+        
+        if (!recentSearch.includes(searchedText)) {
+          // setRecentSearch 함수를 사용하여 recentSearch 상태를 업데이트합니다.
+          setRecentSearch([searchedText, ...recentSearch.slice(0, 5)]);
+        }
       }
     } catch (error) {
       console.log(error);
