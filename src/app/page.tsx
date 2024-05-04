@@ -12,14 +12,8 @@ const styling1 = {
   backgroundSize: "cover",
 };
 
-const recentSearch = [
-  "Bangladesh",
-  "Italy",
-  "France",
-  "Turkey",
-  "India",
-  "Dubai",
-];
+const [recentSearch, setRecentSearch] = useState([
+]);
 
 export default function Home() {
   // ================= these are the state ===============
@@ -83,6 +77,10 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
+        if (!recentSearch.includes(searchedText)) {
+          // setRecentSearch 함수를 사용하여 recentSearch 상태를 업데이트합니다.
+          setRecentSearch([searchedText, ...recentSearch.slice(0, 5)]);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -175,7 +173,7 @@ export default function Home() {
             </div>
             <div className="absolute lg:bottom-10 bottom-[-60px] left-0 right-0 text-center">
               <small className="text-gray-100">
-                Developed by{" "}
+                Modified by{" "}
                 <a href="https://github.com/tkdgur7234" target="_blank" className="text-sm font-light text-amber-700 bg-white p-1 rounded-md">
                   박 상 혁
                 </a>
