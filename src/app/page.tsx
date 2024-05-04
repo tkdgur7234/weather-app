@@ -38,17 +38,17 @@ export default function Home() {
     setSearchedText(e.target.value);
   };
 
-  // initially its shows result for Bangladesh
+  // initially its shows result for South Korea
   const initial = async () => {
     try {
       const response = await axios.get(
-        `https://api.weatherapi.com/v1/current.json?key=25910174a87a4c63a6c141019230506&q=Bangladesh&aqi=no`
+        `https://api.weatherapi.com/v1/current.json?key=25910174a87a4c63a6c141019230506&q=Korea&aqi=no`
       );
       if (response.data) {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
-        setStyling1({ ...styling1, backgroundImage: `url('/bangladesh.jpg')` }); // 배경 이미지 변경
+        setStyling1({ ...styling1, backgroundImage: `url('/korea.jpg')` }); // 배경 이미지 변경
       }
     } catch (error) {
       console.log(error);
@@ -77,16 +77,28 @@ export default function Home() {
 
          // 각 나라에 따른 배경 이미지 설정
          switch(searchedText.toLowerCase()) {
+          case "canada":
+            setStyling1({ ...styling1, backgroundImage: `url('/canada.jpg')` });
+            break;
+          case "germany":
+            setStyling1({ ...styling1, backgroundImage: `url('/germany.jpg')` });
+            break;
+          case "japan":
+            setStyling1({ ...styling1, backgroundImage: `url('/japan.jpg')` });
+            break;
+          case "singapore":
+            setStyling1({ ...styling1, backgroundImage: `url('/singapore.jpg')` });
+            break;
+          case "korea":
+            setStyling1({ ...styling1, backgroundImage: `url('/korea.jpg')` });
+            break;
           case "bangladesh":
             setStyling1({ ...styling1, backgroundImage: `url('/bangladesh.jpg')` });
-            break;
-          case "italy":
-            setStyling1({ ...styling1, backgroundImage: `url('/italy.jpg')` });
             break;
           // 나머지 나라에 대한 설정 추가
           default:
             // 기본 배경 이미지 설정
-            setStyling1({ ...styling1, backgroundImage: `url('/default.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/weather.jpg')` });
             break;
         }
       }
@@ -108,16 +120,28 @@ export default function Home() {
 
         // 각 나라에 따른 배경 이미지 설정
         switch(name.toLowerCase()) {
+          case "canada":
+            setStyling1({ ...styling1, backgroundImage: `url('/canada.jpg')` });
+            break;
+          case "germany":
+            setStyling1({ ...styling1, backgroundImage: `url('/germany.jpg')` });
+            break;
+          case "japan":
+            setStyling1({ ...styling1, backgroundImage: `url('/japan.jpg')` });
+            break;
+          case "singapore":
+            setStyling1({ ...styling1, backgroundImage: `url('/singapore.jpg')` });
+            break;
+          case "korea":
+            setStyling1({ ...styling1, backgroundImage: `url('/korea.jpg')` });
+            break;
           case "bangladesh":
             setStyling1({ ...styling1, backgroundImage: `url('/bangladesh.jpg')` });
-            break;
-          case "italy":
-            setStyling1({ ...styling1, backgroundImage: `url('/italy.jpg')` });
             break;
           // 나머지 나라에 대한 설정 추가
           default:
             // 기본 배경 이미지 설정
-            setStyling1({ ...styling1, backgroundImage: `url('/default.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/weather.jpg')` });
             break;
         }
       }
