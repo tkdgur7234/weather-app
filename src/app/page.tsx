@@ -5,14 +5,6 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-const styling1 = {
-  backgroundImage: `url('/weatherCard.jpg')`,
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-};
-
-
 
 export default function Home() {
   const [recentSearch, setRecentSearch] = useState([
@@ -23,7 +15,7 @@ export default function Home() {
     "India",
     "Dubai",
   ]);
-  
+
   // ================= these are the state ===============
   const [searchedText, setSearchedText] = useState<string>("");
   const [weatherDetails, setWeatherDetails] = useState<IWeather>(
@@ -32,6 +24,13 @@ export default function Home() {
   const [locationDetails, setLocationDetails] = useState<ILocation>(
     {} as ILocation
   );
+
+  const [styling1, setStyling1] = useState({
+    backgroundImage: `url('/weatherCard.jpg')`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+  });
 
   //==============input field value handler ===============
   const searchFieldInputHandler = (e: HTMLInputElement | any) => {
@@ -49,6 +48,7 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
+        setStyling1({ ...styling1, backgroundImage: `url('/bangladesh.jpg')` }); // 배경 이미지 변경
       }
     } catch (error) {
       console.log(error);
@@ -74,6 +74,21 @@ export default function Home() {
           // setRecentSearch 함수를 사용하여 recentSearch 상태를 업데이트합니다.
           setRecentSearch([searchedText, ...recentSearch.slice(0, 5)]);
         }
+
+         // 각 나라에 따른 배경 이미지 설정
+         switch(searchedText.toLowerCase()) {
+          case "bangladesh":
+            setStyling1({ ...styling1, backgroundImage: `url('/bangladesh.jpg')` });
+            break;
+          case "italy":
+            setStyling1({ ...styling1, backgroundImage: `url('/italy.jpg')` });
+            break;
+          // 나머지 나라에 대한 설정 추가
+          default:
+            // 기본 배경 이미지 설정
+            setStyling1({ ...styling1, backgroundImage: `url('/default.jpg')` });
+            break;
+        }
       }
     } catch (error) {
       console.log(error);
@@ -90,6 +105,21 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
+
+        // 각 나라에 따른 배경 이미지 설정
+        switch(name.toLowerCase()) {
+          case "bangladesh":
+            setStyling1({ ...styling1, backgroundImage: `url('/bangladesh.jpg')` });
+            break;
+          case "italy":
+            setStyling1({ ...styling1, backgroundImage: `url('/italy.jpg')` });
+            break;
+          // 나머지 나라에 대한 설정 추가
+          default:
+            // 기본 배경 이미지 설정
+            setStyling1({ ...styling1, backgroundImage: `url('/default.jpg')` });
+            break;
+        }
       }
     } catch (error) {
       console.log(error);
