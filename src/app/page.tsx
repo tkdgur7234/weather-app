@@ -32,6 +32,13 @@ export default function Home() {
     backgroundSize: "cover",
   });
 
+  const [styling2, setStyling2] = useState({
+    backgroundImage: `url('/weatherCard.jpg')`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+  });
+
   //==============input field value handler ===============
   const searchFieldInputHandler = (e: HTMLInputElement | any) => {
     e.preventDefault();
@@ -117,6 +124,32 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
+
+        switch(name.toLowerCase()) {
+          case "canada":
+            setStyling2({ ...styling2, backgroundImage: `url('/canada.jpg')` });
+            break;
+          case "germany":
+            setStyling2({ ...styling2, backgroundImage: `url('/germany.jpg')` });
+            break;
+          case "japan":
+            setStyling2({ ...styling2, backgroundImage: `url('/japan.jpg')` });
+            break;
+          case "singapore":
+            setStyling2({ ...styling2, backgroundImage: `url('/singapore.jpg')` });
+            break;
+          case "korea":
+            setStyling2({ ...styling2, backgroundImage: `url('/korea.jpg')` });
+            break;
+          case "bangladesh":
+            setStyling2({ ...styling2, backgroundImage: `url('/bangladesh.jpg')` });
+            break;
+          // 나머지 나라에 대한 설정 추가
+          default:
+            // 기본 배경 이미지 설정
+            setStyling2({ ...styling2, backgroundImage: `url('/weather.jpg')` });
+            break;
+        }
       }
     } catch (error) {
       console.log(error);
