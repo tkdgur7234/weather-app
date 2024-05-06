@@ -51,7 +51,6 @@ export default function Home() {
         setStyling1({ ...styling1, backgroundImage: `url('/korea.jpg')` }); // 배경 이미지 변경
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -74,7 +73,7 @@ export default function Home() {
           // setRecentSearch 함수를 사용하여 recentSearch 상태를 업데이트합니다.
           setRecentSearch([searchedText, ...recentSearch.slice(0, 5)]);
         }
-
+        
          // 각 나라에 따른 배경 이미지 설정
          switch(searchedText.toLowerCase()) {
           case "canada":
@@ -103,7 +102,6 @@ export default function Home() {
         }
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -117,6 +115,8 @@ export default function Home() {
         setLocationDetails(response.data.location);
         setWeatherDetails(response.data.current);
         setSearchedText("");
+        
+        console.log(name.toLowerCase());
 
         switch(name.toLowerCase()) {
           case "canada":
@@ -145,7 +145,6 @@ export default function Home() {
         }
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
