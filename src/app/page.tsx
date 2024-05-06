@@ -32,13 +32,6 @@ export default function Home() {
     backgroundSize: "cover",
   });
 
-  const [styling2, setStyling2] = useState({
-    backgroundImage: `url('/weatherCard.jpg')`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-  });
-
   //==============input field value handler ===============
   const searchFieldInputHandler = (e: HTMLInputElement | any) => {
     e.preventDefault();
@@ -127,27 +120,27 @@ export default function Home() {
 
         switch(name.toLowerCase()) {
           case "canada":
-            setStyling2({ ...styling2, backgroundImage: `url('/canada.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/canada.jpg')` });
             break;
           case "germany":
-            setStyling2({ ...styling2, backgroundImage: `url('/germany.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/germany.jpg')` });
             break;
           case "japan":
-            setStyling2({ ...styling2, backgroundImage: `url('/japan.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/japan.jpg')` });
             break;
           case "singapore":
-            setStyling2({ ...styling2, backgroundImage: `url('/singapore.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/singapore.jpg')` });
             break;
           case "korea":
-            setStyling2({ ...styling2, backgroundImage: `url('/korea.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/korea.jpg')` });
             break;
           case "bangladesh":
-            setStyling2({ ...styling2, backgroundImage: `url('/bangladesh.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/bangladesh.jpg')` });
             break;
           // 나머지 나라에 대한 설정 추가
           default:
             // 기본 배경 이미지 설정
-            setStyling2({ ...styling2, backgroundImage: `url('/weather.jpg')` });
+            setStyling1({ ...styling1, backgroundImage: `url('/weather.jpg')` });
             break;
         }
       }
@@ -242,7 +235,7 @@ export default function Home() {
             </div>
             <div className="absolute lg:bottom-10 bottom-[-60px] left-0 right-0 text-center">
               <small className="text-gray-100">
-                Developed by{" "}
+                Modified by{" "}
                 <a href="https://github.com/tkdgur7234" target="_blank" className="text-sm font-light text-amber-700 bg-white p-1 rounded-md">
                   박 상 혁
                 </a>
